@@ -1,0 +1,68 @@
+﻿<Window x:Class="projectuwu.Windows.BookUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projectuwu.Windows"
+        mc:Ignorable="d"
+        Title="Aktualizacja książki" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" Text="Aktualizacja" Margin="20" TextAlignment="Center" FontSize="15"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="0"  Margin="30" Name="Name"></TextBox>
+        <Label Grid.Row="2" Grid.Column="0" Margin="5 10 0 0" Content="Autor">
+        </Label>
+        <ComboBox Grid.Row="2" Grid.Column="1"  Name="Author" Loaded="AuthorDropdown_Loaded">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Tag="{Binding AuthorId }" Text="{Binding AuthorName}">
+                    </TextBox>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Grid.Row="3" Grid.Column="0" Margin="5 10 0 0" Content="Kategoria">
+        </Label>
+        <ComboBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Name="Category"
+                Loaded="CategoryDropdown_Loaded">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Tag="{Binding CategoryId }" Text="{Binding Name}"></TextBox>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Grid.Row="4" Grid.Column="0" Margin="5 10 0 0" Content="Pożyczający">
+        </Label>
+        <ComboBox
+                Grid.Row="4"
+                Grid.Column="1"
+                Name="Borrower"
+                Loaded="BorrowerDropdown_Loaded">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Tag="{Binding UserId }" Text="{Binding UserName}"></TextBox>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="20" Content="Wypożycz" Click="Borrow_Click"></Button>
+        <Button  Grid.Row="6" Grid.Column="1" Margin="20" Content="Zwróć" Click="Return_Click"></Button>
+
+        <Button  Grid.Row="6" Grid.Column="0" Margin="20" Content="Aktualizuj" Click="Update_Click"></Button>
+    </Grid>
+</Window>
+    
